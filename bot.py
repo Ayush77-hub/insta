@@ -63,7 +63,10 @@ def get_email(update: Update, context: CallbackContext) -> int:
         
         chrome_options.add_argument("--window-size=1920,1080")
         chrome_options.add_argument("--lang=en-US")
-        
+        # Binary location for Linux servers
+        import os
+        if os.path.exists("/usr/bin/google-chrome"):
+            chrome_options.binary_location = "/usr/bin/google-chrome"
         # Add a real User-Agent
         chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
 
